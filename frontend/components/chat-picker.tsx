@@ -10,7 +10,7 @@ import {
 import { LLMModel, LLMModelConfig } from '@/lib/models'
 import { TemplateId, Templates } from '@/lib/templates'
 import 'core-js/features/object/group-by.js'
-import { Sparkles } from 'lucide-react'
+import { Sparkles, ArrowBigDownDash, ArrowBigUpDash } from 'lucide-react'
 import Image from 'next/image'
 
 export function ChatPicker({
@@ -20,6 +20,8 @@ export function ChatPicker({
   models,
   languageModel,
   onLanguageModelChange,
+  quality,
+  onQualityChange,
 }: {
   templates: Templates
   selectedTemplate: 'auto' | TemplateId
@@ -27,6 +29,8 @@ export function ChatPicker({
   models: LLMModel[]
   languageModel: LLMModelConfig
   onLanguageModelChange: (config: LLMModelConfig) => void
+  quality: 'High' | 'Low'
+  onQualityChange: (quality: 'High' | 'Low') => void
 }) {
   return (
     <div className="flex items-center space-x-2">
@@ -101,6 +105,42 @@ export function ChatPicker({
                 ))}
               </SelectGroup>
             ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="flex flex-col">
+        <Select
+          name="quality"
+          defaultValue={quality}
+          onValueChange={onQualityChange}
+        >
+          <SelectTrigger className="whitespace-nowrap border-none shadow-none focus:ring-0 px-0 py-0 h-6 text-xs">
+            <SelectValue placeholder="Quality" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Quality</SelectLabel>
+              <SelectItem value="High">
+                <div className="flex items-center space-x-1">
+                  <ArrowBigUpDash
+                    className="flex text-[#a1a1aa]"
+                    width={18}
+                    height={18}
+                  />
+                  <span>High quality (slower)</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="Low">
+                <div className="flex items-center space-x-1">
+                  <ArrowBigDownDash
+                    className="flex text-[#a1a1aa]"
+                    width={18}
+                    height={18}
+                  />
+                  <span>Low quality (faster)</span>
+                </div>
+              </SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </div>

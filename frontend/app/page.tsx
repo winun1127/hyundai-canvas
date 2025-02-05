@@ -46,6 +46,7 @@ export default function Home() {
   const [authView, setAuthView] = useState<AuthViewType>('sign_in')
   const [isRateLimited, setIsRateLimited] = useState(false)
   const { session, apiKey } = useAuth(setAuthDialog, setAuthView)
+  const [quality, setQuality] = useState<'High' | 'Low'>('High')
 
   const currentModel = modelsList.models.find(
     (model) => model.id === languageModel.model,
@@ -167,6 +168,7 @@ export default function Home() {
       template: currentTemplate,
       model: currentModel,
       config: languageModel,
+      quality: quality,
     })
 
     setChatInput('')
@@ -186,6 +188,7 @@ export default function Home() {
       template: currentTemplate,
       model: currentModel,
       config: languageModel,
+      quality: quality,
     })
   }
 
@@ -297,6 +300,8 @@ export default function Home() {
               models={modelsList.models}
               languageModel={languageModel}
               onLanguageModelChange={handleLanguageModelChange}
+              quality={quality}
+              onQualityChange={setQuality}
             />
             <ChatSettings
               languageModel={languageModel}

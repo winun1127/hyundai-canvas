@@ -217,6 +217,13 @@
       "multiModal": false
     },
     {
+      "id": "llama3.3:70b",
+      "provider": "Ollama",
+      "providerId": "ollama",
+      "name": "Llama 3.3",
+      "multiModal": false
+    },
+    {
       "id": "mistral-nemo",
       "provider": "Ollama",
       "providerId": "ollama",

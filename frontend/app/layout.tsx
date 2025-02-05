@@ -7,8 +7,9 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Fragments by E2B',
-  description: "Open-source version of Anthropic's Artifacts",
+  title: 'Hyundai Canvas',
+  description:
+    "AI-assisted UI design/development tool similar to Anthropic's Artifacts",
 }
 
 export default function RootLayout({
@@ -22,7 +23,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="light"
             enableSystem
             disableTransitionOnChange
           >

@@ -3,6 +3,7 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google'
 import { createVertex } from '@ai-sdk/google-vertex'
 import { createMistral } from '@ai-sdk/mistral'
 import { createOpenAI } from '@ai-sdk/openai'
+import { Client } from '@langchain/langgraph-sdk'
 import { createOllama } from 'ollama-ai-provider'
 
 export type LLMModel = {
@@ -78,6 +79,12 @@ export function getModelClient(model: LLMModel, config: LLMModelConfig) {
   }
 
   return createClient()
+}
+
+export function getLangGraphClient(config: LLMModelConfig) {
+  const { apiKey, baseURL } = config
+
+  return new Client({ apiUrl: baseURL || 'http://localhost:2024' })
 }
 
 export function getDefaultMode(model: LLMModel) {

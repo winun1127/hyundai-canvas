@@ -48,15 +48,8 @@ export function NavBar({
     <nav className="w-full flex bg-background py-4">
       <div className="flex flex-1 items-center">
         <Link href="/" className="flex items-center gap-2" target="_blank">
-          <Logo width={24} height={24} />
-          <h1 className="whitespace-pre">Fragments by </h1>
-        </Link>
-        <Link
-          href="https://e2b.dev"
-          className="underline decoration-[rgba(229,123,0,.3)] decoration-2 text-[#ff8800]"
-          target="_blank"
-        >
-          E2B
+          <Logo style="hyundai" width={24} height={24} />
+          <h1 className="whitespace-pre">Hyundai Canvas</h1>
         </Link>
       </div>
       <div className="flex items-center gap-1 md:gap-4">
@@ -126,7 +119,7 @@ export function NavBar({
                 </span>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem
+              {/* <DropdownMenuItem
                 onClick={() => {
                   window.open('https://e2b.dev', '_blank')
                 }}
@@ -146,7 +139,7 @@ export function NavBar({
                 <TwitterLogoIcon className="mr-2 h-4 w-4 text-muted-foreground" />
                 Follow us on X
               </DropdownMenuItem>
-              <DropdownMenuSeparator />
+              <DropdownMenuSeparator /> */}
               <DropdownMenuItem onClick={signOut}>
                 <LogOut className="mr-2 h-4 w-4 text-muted-foreground" />
                 Sign out

@@ -15,9 +15,9 @@ function AuthForm({
     <div className="flex justify-center items-center flex-col">
       <h1 className="flex items-center gap-4 text-xl font-bold mb-2 w-full">
         <div className="flex items-center justify-center rounded-md shadow-md bg-black p-2">
-          <Logo className="text-white w-6 h-6" />
+          <Logo style="hyundai" className="text-white w-6 h-6" />
         </div>
-        Sign in to Fragments
+        Sign in to Hyundai Canvas
       </h1>
       <div className="w-full">
         <Auth
@@ -27,8 +27,8 @@ function AuthForm({
             variables: {
               default: {
                 colors: {
-                  brand: 'rgb(255, 136, 0)',
-                  brandAccent: 'rgb(255, 136, 0)',
+                  brand: '#002c5f',
+                  brandAccent: '#002c5f',
                   inputText: 'hsl(var(--foreground))',
                   dividerBackground: 'hsl(var(--border))',
                   inputBorder: 'hsl(var(--input))',
@@ -58,7 +58,8 @@ function AuthForm({
           view={view}
           theme="default"
           showLinks={true}
-          providers={['github', 'google']}
+          // providers={['github', 'google']}
+          providers={[]}
           providerScopes={{
             github: 'email',
           }}
